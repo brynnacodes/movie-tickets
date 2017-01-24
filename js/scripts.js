@@ -1,7 +1,7 @@
 /////////////////////
 //Back-end
 /////////////////////
-var price = 0;
+var price = 12;
 
 var movie;
 var time;
@@ -54,7 +54,7 @@ $(function() {
   $("#lotbTime").submit(function() {
     event.preventDefault();
     time = $("input:radio[class=times]:checked").val();
-    console.log(time);
+
     $("#lotbTime").hide();
     $("#hpTime").hide();
     $("#sb3Time").hide();
@@ -79,9 +79,15 @@ $(function() {
   });
   $("#userAge").submit(function() {
     event.preventDefault();
-    age = $("input:radio[class=age]:checked").val();
+    age = $("input:radio[class=userAge]:checked").val();
+    if (age === "adult") {
+    } else if (age === "senior") {
+      price -= 2;
+    } else if (age === "child") {
+      price -= 6;
+    }
     $("#userAge").hide();
-    $("#show-ticket").append("<p>Your ticket is for " + movie + " at " + time + " and will cost...");
+    $("#show-ticket").append("<p>Your ticket is for " + movie + " at " + time + " and will cost " + price + " dollars.");
   });
 
 });
