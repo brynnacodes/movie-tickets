@@ -3,41 +3,50 @@
   <head>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Yesteryear" rel="stylesheet">
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/scripts.js"></script>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <form id="userMovie">
-      <input type="radio" name="age" class="movie" value="lotb">Lord of the Bracelets<br>
-      <input type="radio" name="age" class="movie" value="hpoewm">Hagrid Portly and Ordinary Everyday Without Magic<br>
-      <input type="radio" name="age" class="movie" value="sb3">Space Balls III<br>
-      <button  id="movieSubmit" type="submit" class="btn">Next</button>
-    </form>
-    <form id="userAge">
-      <input type="radio" name="age" class="userAge" value="child">17 and under<br>
-      <input type="radio" name="age" class="userAge" value="adult">18 to 64<br>
-      <input type="radio" name="age" class="userAge" value="senior">65 and older<br>
-      <button  id="ageSubmit" type="submit" class="btn">Next</button>
-    </form>
-    <form id="lotbTime">
-      <input type="radio" name="age" class="times" value="child">Noon<br>
-      <input type="radio" name="age" class="times" value="adult">5pm<br>
-      <input type="radio" name="age" class="times" value="senior">8pm<br>
-      <button  id="timeSubmit" type="submit" class="btn">Next</button>
-    </form>
-    <form id="hpTime">
-      <input type="radio" name="age" class="times" value="child">1:30pm<br>
-      <input type="radio" name="age" class="times" value="adult">4pm<br>
-      <input type="radio" name="age" class="times" value="senior">10:30pm<br>
-      <button  id="timeSubmit" type="submit" class="btn">Next</button>
-    </form>
-    <form id="sb3Time">
-      <input type="radio" name="age" class="times" value="child">2pm<br>
-      <input type="radio" name="age" class="times" value="adult">6pm<br>
-      <input type="radio" name="age" class="times" value="senior">Midnight<br>
-      <button  id="timeSubmit" type="submit" class="btn">Next</button>
-    </form>
+    <div class="container">
+      <h1 id="header">Showtimes!</h1>
+      <form id="userMovie">
+        <input type="radio" name="age" class="movie" value="Lord of the Bracelets">Lord of the Bracelets<br>
+        <input type="radio" name="age" class="movie" value="Hagrid Portly and Ordinary Everyday Without Magic">Hagrid Portly and Ordinary Everyday Without Magic<br>
+        <input type="radio" name="age" class="movie" value="Space Balls III">Space Balls III<br>
+        <button  id="movieSubmit" type="submit" class="btn"> Next</button>
+      </form>
+      <form id="lotbTime">
+        <input type="radio" name="time" class="times" value="Noon"> Noon<br>
+        <input type="radio" name="time" class="times" value="5pm"> 5pm<br>
+        <input type="radio" name="time" class="times" value="8pm"> 8pm<br>
+        <button  id="timeSubmit" type="submit" class="btn"> Next</button>
+      </form>
+      <form id="hpTime">
+        <input type="radio" name="time" class="times" value="1:30pm"> 1:30pm<br>
+        <input type="radio" name="time" class="times" value="4pm"> 4pm<br>
+        <input type="radio" name="time" class="times" value="10:30pm"> 10:30pm<br>
+        <button  id="timeSubmit" type="submit" class="btn"> Next</button>
+      </form>
+      <form id="sb3Time">
+        <input type="radio" name="time" class="times" value="2pm"> 2pm<br>
+        <input type="radio" name="time" class="times" value="6pm"> 6pm<br>
+        <input type="radio" name="time" class="times" value="Midnight"> Midnight<br>
+        <button  id="timeSubmit" type="submit" class="btn"> Next</button>
+      </form>
+      <form id="userAge">
+        <input type="radio" name="age" class="userAge" value="child"> 17 and under<br>
+        <input type="radio" name="age" class="userAge" value="adult"> 18 to 64<br>
+        <input type="radio" name="age" class="userAge" value="senior"> 65 and older<br>
+        <button  id="ageSubmit" type="submit" class="btn">Next</button>
+      </form>
+
+      <div id="show-ticket">
+
+
+      </div>
+    </div>
   </body>
 </html>

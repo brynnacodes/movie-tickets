@@ -2,6 +2,10 @@
 //Back-end
 /////////////////////
 var price = 0;
+
+var movie;
+var time;
+var age;
 //var userAge = new Age();
 
 // function Age(child = 6, adult = 12, senior = 10) {
@@ -32,5 +36,52 @@ $(function() {
   $("#hpTime").hide();
   $("#sb3Time").hide();
 
-  $("#userMovie").submit();
+  $("#userMovie").submit(function() {
+    event.preventDefault();
+    movie = $("input:radio[class=movie]:checked").val();
+
+    if (movie === "Lord of the Bracelets") {
+      $("#userMovie").hide();
+      $("#lotbTime").show();
+    } else if (movie === "Hagrid Portly and Ordinary Everyday Without Magic") {
+      $("#userMovie").hide();
+      $("#hpTime").show();
+    } else if (movie === "Space Balls III") {
+      $("#userMovie").hide();
+      $("#sb3Time").show();
+    }
+  });
+  $("#lotbTime").submit(function() {
+    event.preventDefault();
+    time = $("input:radio[class=times]:checked").val();
+    console.log(time);
+    $("#lotbTime").hide();
+    $("#hpTime").hide();
+    $("#sb3Time").hide();
+    $("#userAge").show();
+  });
+
+  $("#hpTime").submit(function() {
+    event.preventDefault();
+    time = $("input:radio[class=times]:checked").val();
+    $("#lotbTime").hide();
+    $("#hpTime").hide();
+    $("#sb3Time").hide();
+    $("#userAge").show();
+  });
+  $("#sb3Time").submit(function() {
+    event.preventDefault();
+    time = $("input:radio[class=times]:checked").val();
+    $("#lotbTime").hide();
+    $("#hpTime").hide();
+    $("#sb3Time").hide();
+    $("#userAge").show();
+  });
+  $("#userAge").submit(function() {
+    event.preventDefault();
+    age = $("input:radio[class=age]:checked").val();
+    $("#userAge").hide();
+    $("#show-ticket").append("<p>Your ticket is for " + movie + " at " + time + " and will cost...");
+  });
+
 });
