@@ -1,93 +1,42 @@
-/////////////////////
-//Back-end
-/////////////////////
-var price = 12;
+/////////BE
 
-var movie;
-var time;
-var age;
-//var userAge = new Age();
+function Ticket (movie, time, age) {
+  this.movie = movie;
+  this.time = time;
+  this.age = age;
+};
 
-// function Age(child = 6, adult = 12, senior = 10) {
-//   this.child = child;
-//   this.adult = adult;
-//   this.senior = senior;
-// }
+Ticket.prototype.ticketPrice = function() {
+  var flatRate = 10;
 
-// function Ticket(title, times) {
-//   this.title = title;
-//   this.time = times;
-//   this.ages = [];
-// }
+  if (this.age === "senior" && (this.time === "matinee" || this.time === "late-showing")) {
+    flatRate -= 4;
+  } else if (this.age === "senior") {
+    flatRate -= 2;
+  } else if (this.age === "child") {
+    flatRate -=6
+  } else if (this.age === "adult" && (this.time === "matinee" || this.time === "late-showing")) {
+    flatRate -=2
+  }
+  return flatRate;
+};
 
-// var lotb = new Ticket("Lord of the Bracelets", ["16:30", "19:00", "23:30"])
-//
-// Ticket.prototype.price = function(title, times, age) {
+////////FE
 
-//}
+$(document).ready(function() {
 
-
-/////////////////////
-//Front-end
-/////////////////////
-$(function() {
-  $("#userAge").hide();
-  $("#lotbTime").hide();
-  $("#hpTime").hide();
-  $("#sb3Time").hide();
-
-  $("#userMovie").submit(function() {
+  $("#ticket-form").submit(function(event) {
     event.preventDefault();
-    movie = $("input:radio[class=movie]:checked").val();
 
-    if (movie === "Lord of the Bracelets") {
-      $("#userMovie").hide();
-      $("#lotbTime").show();
-    } else if (movie === "Hagrid Portly and Ordinary Everyday Without Magic") {
-      $("#userMovie").hide();
-      $("#hpTime").show();
-    } else if (movie === "Space Balls III") {
-      $("#userMovie").hide();
-      $("#sb3Time").show();
-    }
-  });
-  $("#lotbTime").submit(function() {
-    event.preventDefault();
-    time = $("input:radio[class=times]:checked").val();
+    var selectedMovie = $("select#movie").val();
+    var selecedTime = $("select#time").val();
+    var selectedAge = $("select#age").val();
+    var newTicket = new Ticket(movie, time, age);
+    var flatRate = 10;
 
-    $("#lotbTime").hide();
-    $("#hpTime").hide();
-    $("#sb3Time").hide();
-    $("#userAge").show();
-  });
+    var ticketTotal = newTicket.ticketPrice();
 
-  $("#hpTime").submit(function() {
-    event.preventDefault();
-    time = $("input:radio[class=times]:checked").val();
-    $("#lotbTime").hide();
-    $("#hpTime").hide();
-    $("#sb3Time").hide();
-    $("#userAge").show();
-  });
-  $("#sb3Time").submit(function() {
-    event.preventDefault();
-    time = $("input:radio[class=times]:checked").val();
-    $("#lotbTime").hide();
-    $("#hpTime").hide();
-    $("#sb3Time").hide();
-    $("#userAge").show();
-  });
-  $("#userAge").submit(function() {
-    event.preventDefault();
-    age = $("input:radio[class=userAge]:checked").val();
-    if (age === "adult") {
-    } else if (age === "senior") {
-      price -= 2;
-    } else if (age === "child") {
-      price -= 6;
-    }
-    $("#userAge").hide();
-    $("#show-ticket").append("<p>Your ticket is for " + movie + " at " + time + " and will cost " + price + " dollars.");
-  });
 
+    $("#show-ticket").append("<p>" + movie + time + age + ticketTotal + "</p>");
+  });
 });
