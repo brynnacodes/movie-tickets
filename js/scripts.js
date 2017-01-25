@@ -28,15 +28,15 @@ $(document).ready(function() {
   $("#ticket-form").submit(function(event) {
     event.preventDefault();
 
-    var selectedMovie = $("select#movie").val();
-    var selecedTime = $("select#time").val();
-    var selectedAge = $("select#age").val();
+    var movie = $("select#movie").val();
+    var time = $("select#time").val();
+    var age = $("select#age").val();
     var newTicket = new Ticket(movie, time, age);
     var flatRate = 10;
 
     var ticketTotal = newTicket.ticketPrice();
 
 
-    $("#show-ticket").append("<p>" + movie + time + age + ticketTotal + "</p>");
+    $("#show-ticket").append("<p>" + " " + movie + " " + time + " " + age + " " + "$" + ticketTotal + "</p>");
   });
 });
