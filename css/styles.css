@@ -1,17 +1,36 @@
 body {
-
+  font-family: 'Open Sans', sans-serif;
 }
 
 #header {
-  /*background-image: url("img/sign.png");*/
-  text-align: center;
+  background-image: url(../img/sign.png);
+  background-repeat: no-repeat;
+  
   margin-top: 50px;
   margin-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  padding-left: 28px;
+  padding-right: 60px;
   color: #FB9537;
-  font-size: 80px;
-  font-family: "Yesteryear", cursive;
+  font-size: 48px;
+  font-family:'Limelight', cursive;
 }
 
 form {
   margin-left: 30px;
+  font-size: 18px;
+}
+
+button {
+  background-color: #A31621;
+  margin-top: 20px;
+  height: 40px;
+  width: 75px;
+  font-size: 30px;
+  color: white;
+}
+
+#show-ticket {
+  font-size: 18px;
 }
